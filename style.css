@@ -1,0 +1,265 @@
+/* ===========================
+   Base & Variables
+   =========================== */
+:root {
+  --bg-dark: #0d1117;
+  --bg-card: #161b22;
+  --bg-table-row: #1c2333;
+  --border: #30363d;
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --accent-tier1: #8b949e;
+  --accent-tier2: #cd7f32;
+  --accent-tier3: #c0c0c0;
+  --accent-tier4: #ffd700;
+  --accent-tier5: #58a6ff;
+  --accent-blue: #58a6ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ===========================
+   Hero Header
+   =========================== */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 80px 20px 60px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(88, 166, 255, 0.15) 0%, transparent 70%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.server-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.server-logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 4px 24px rgba(88, 166, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.server-logo:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 32px rgba(88, 166, 255, 0.5);
+}
+
+.server-name {
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #58a6ff, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.server-tagline {
+  margin-top: 8px;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+/* ===========================
+   Main Content
+   =========================== */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+.section {
+  margin-bottom: 48px;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+}
+
+/* ===========================
+   Tables
+   =========================== */
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+thead th {
+  background: var(--bg-card);
+  padding: 14px 18px;
+  text-align: center;
+  font-weight: 600;
+  border-bottom: 2px solid var(--border);
+  white-space: nowrap;
+}
+
+thead th:first-child {
+  text-align: left;
+}
+
+tbody td {
+  padding: 12px 18px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+tbody td:first-child {
+  text-align: left;
+  font-weight: 500;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--bg-table-row);
+}
+
+tbody tr:hover {
+  background: rgba(88, 166, 255, 0.06);
+}
+
+/* Tier header colors */
+.tier-1 { color: var(--accent-tier1); }
+.tier-2 { color: var(--accent-tier2); }
+.tier-3 { color: var(--accent-tier3); }
+.tier-4 { color: var(--accent-tier4); }
+.tier-5 { color: var(--accent-tier5); }
+
+/* ===========================
+   FAQ
+   =========================== */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.faq-item[open] {
+  border-color: var(--accent-blue);
+}
+
+.faq-item summary {
+  padding: 14px 18px;
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.faq-item summary::before {
+  content: '▸';
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+
+.faq-item[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.faq-item summary:hover {
+  color: var(--accent-blue);
+}
+
+.faq-item p {
+  padding: 0 18px 14px;
+  color: var(--text-secondary);
+}
+
+/* ===========================
+   Footer
+   =========================== */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.footer-links {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: var(--accent-blue);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.footer-links a:hover {
+  opacity: 0.7;
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 600px) {
+  .server-name {
+    font-size: 1.8rem;
+  }
+
+  .server-tagline {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+  }
+
+  thead th,
+  tbody td {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+}
